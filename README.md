@@ -25,8 +25,9 @@ Example Use Cases
 - Classifying text data for opinion mining 🤖
 - Evaluating the sentiment of social media posts 📱
 
-Code Snippets
-Importing Libraries
+**Code Snippets**
+
+*Importing Libraries*
 import pandas as pd
 import nltk
 from nltk.corpus import stopwords
@@ -35,7 +36,8 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report
-Preprocessing Text Data
+
+*Preprocessing Text Data*
 def preprocess_text(text):
     # Remove punctuation and convert to lowercase
     text = ''.join(e for e in text if e.isalnum() or e.isspace()).lower()
@@ -49,7 +51,8 @@ def preprocess_text(text):
     words = [lemmatizer.lemmatize(word) for word in words]
     # Join the words back into a string
     return ' '.join(words)
-Training a Logistic Regression Classifier
+
+*Training a Logistic Regression Classifier*
 Create a CountVectorizer object
 vectorizer = CountVectorizer()
 Fit the vectorizer to the training data and transform both the training and testing data
@@ -58,25 +61,27 @@ X_test_count = vectorizer.transform(X_test)
 Train a Logistic Regression classifier with class weights
 clf = LogisticRegression(max_iter=10000, class_weight='balanced')
 clf.fit(X_train_count, y_train)
-Evaluating the Model
+
+*Evaluating the Model*
 Make predictions on the testing data
 y_pred = clf.predict(X_test_count)
 Evaluate the model
 print("Accuracy:", accuracy_score(y_test, y_pred))
 print("The Classification Report:")
 print(classification_report(y_test, y_pred))
-Model Metrics
+
+*Model Metrics*
 - *Accuracy*: Measures the proportion of correctly classified instances
 - *Precision*: Measures the proportion of true positives among all predicted positive instances
 - *Recall*: Measures the proportion of true positives among all actual positive instances
 - *F1-score*: Harmonic mean of precision and recall
 
-Output
+*Output*
 [!https://drive.google.com/uc?id=1RSXgsOHNoLyV_7fIXnsqBaY42FqeI4iL](https://drive.google.com/file/d/1RSXgsOHNoLyV_7fIXnsqBaY42FqeI4iL/view?usp=drivesdk)
 
-Author
+*Author*
 - _Reaishma N_ 🙋‍♀️
 
-License
+*License*
 MIT License 📄
 
